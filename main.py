@@ -17,14 +17,18 @@ Author: datadonk23
 Date: 07.05.20 
 """
 
-import requests as req
+from request_util import make_request
 
 host = "http://127.0.0.1:5000"
 project_endpoint = "/project/"
 
-test_proj = "community-driven-platform-for-identifying-fake-news"
+test_proj_list = ["zero_project",
+                  "eunia-european-union-national-informal-assistance-oz4kcp",
+                  "crowd-free-x08uy5", "covid-gur92q", "jobliebe",
+                  "myminoritymatters"]
 
-req_url = host + project_endpoint + test_proj
-resp = req.get(req_url)
-
-print(resp.content)
+for proj in test_proj_list:
+    req_url = host + project_endpoint + proj
+    resp = make_request(req_url)
+    print(resp.content)
+    #print(resp.json()["title"])
