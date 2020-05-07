@@ -17,3 +17,14 @@ Author: datadonk23
 Date: 07.05.20 
 """
 
+import requests as req
+
+host = "http://127.0.0.1:5000"
+project_endpoint = "/project/"
+
+test_proj = "community-driven-platform-for-identifying-fake-news"
+
+req_url = host + project_endpoint + test_proj
+resp = req.get(req_url)
+
+print(resp.content)
